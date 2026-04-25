@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:torpheus/presentation/screens/home/home_screen.dart';
+import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 import '../presentation/screens/authentication/authentication_bloc/authentication_bloc.dart';
 
 import '../injector.dart';
@@ -10,7 +12,8 @@ enum NavigationFlow { simple, modalBottomUp }
 
 enum AppRoutes {
   root('/', NavigationFlow.simple),
-  login('/login', NavigationFlow.simple);
+  login('/login', NavigationFlow.simple),
+  home('/home', NavigationFlow.simple);
 
   final String route;
   final NavigationFlow flow;
@@ -30,10 +33,14 @@ class Routes {
     final appRoute = AppRoutes.fromName(settings.name);
 
     final Widget screen = switch (appRoute) {
-      AppRoutes.login => const LoginScreen(),
+      AppRoutes.login => LoginScreen(
+          loginBloc: injector.getIt.get<LoginBloc>(),
+        ),
       AppRoutes.root => AuthenticationScreen(
           authenticationBloc: injector.getIt.get<AuthenticationBloc>(),
+          loginBloc: injector.getIt.get<LoginBloc>(),
         ),
+      AppRoutes.home => const HomeScreen(),
     };
 
     return switch (appRoute.flow) {

@@ -10,4 +10,8 @@ abstract class PreferencesLocalRepository {
   Future<void> saveAccessToken(String acessToken);
 
   Future<void> saveRefreshToken(String refreshToken);
+
+  bool getIsUsuarioLogado();
+  Future<void> saveIsUsuarioLogado(bool value);
+  Future<void> removeIsUsuarioLogado();
 }

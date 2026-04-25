@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 
 import 'core/shared/app_system_info.dart';
 import 'external/plugins/android_info_impl.dart';
@@ -90,6 +91,12 @@ final class InjectorImpl extends Injector {
       AuthenticationBloc(
         getIt.get<AuthenticationController>(),
         getIt.get<PreferencesController>(),
+      ),
+    );
+
+    getIt.registerSingleton<LoginBloc>(
+      LoginBloc(
+        getIt.get<PreferencesLocalRepository>(),
       ),
     );
 

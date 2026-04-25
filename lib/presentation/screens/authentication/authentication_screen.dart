@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 import '../home/home_screen.dart';
 import '../login/login_screen.dart';
 
@@ -11,9 +12,11 @@ class AuthenticationScreen extends StatefulWidget {
   const AuthenticationScreen({
     super.key,
     required this.authenticationBloc,
+    required this.loginBloc,
   });
 
   final AuthenticationBloc authenticationBloc;
+  final LoginBloc loginBloc;
 
   @override
   State<AuthenticationScreen> createState() => _AuthenticationScreenState();
@@ -21,10 +24,12 @@ class AuthenticationScreen extends StatefulWidget {
 
 class _AuthenticationScreenState extends State<AuthenticationScreen> {
   late final AuthenticationBloc _authenticationBloc;
+  late final LoginBloc _loginBloc;
 
   @override
   void initState() {
     _authenticationBloc = widget.authenticationBloc;
+    _loginBloc = widget.loginBloc;
 
     _authenticationBloc.add(const AuthenticationLoad());
 
@@ -37,7 +42,9 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
       listener: _listener,
       bloc: _authenticationBloc,
       builder: (BuildContext context, AuthenticationState state) {
-        return state.isAuthenticated ? const HomeScreen() : const LoginScreen();
+        return state.isAuthenticated
+            ? const HomeScreen()
+            : LoginScreen(loginBloc: _loginBloc);
       },
     );
   }

@@ -36,4 +36,19 @@ class PreferencesLocalRepositoryImpl extends PreferencesLocalRepository {
   Future<void> saveRefreshToken(String refreshToken) async {
     await _sharedData.setValue(Preferences.refreshToken, refreshToken);
   }
+
+  @override
+  bool getIsUsuarioLogado() {
+    return _sharedData.getValue(Preferences.isUsuarioLogado);
+  }
+
+  @override
+  Future<void> removeIsUsuarioLogado() async {
+    await _sharedData.cleanValue(Preferences.isUsuarioLogado);
+  }
+
+  @override
+  Future<void> saveIsUsuarioLogado(bool value) async {
+    await _sharedData.setValue(Preferences.isUsuarioLogado, value);
+  }
 }

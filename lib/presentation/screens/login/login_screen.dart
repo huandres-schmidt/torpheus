@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/shared/app_system_info.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
+import 'package:torpheus/presentation/screens/login/widgets/login_content.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.loginBloc});
+
+  final LoginBloc loginBloc;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
-      body: Column(
-        children: [
-          Text(
-            "${AppSystemInfo.appInfo?.appVersionInfo.appVersionName} - "
-            "${AppSystemInfo.appInfo?.appVersionInfo.appVersionCode}",
-          ),
-        ],
-      ),
+    return BlocProvider.value(
+      value: loginBloc..add(const LoginCarregar()),
+      child: const LoginContent(),
     );
   }
 }
