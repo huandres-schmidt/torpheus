@@ -79,10 +79,10 @@ class CustomTextInput extends StatelessWidget {
               ? customRoundedBorder()
               : customUnderlineBorder(color: ColorConstants.lightGrey),
           enabledBorder: roundedBorder
-              ? customRoundedBorder(color: Colors.grey.withValues(alpha: 0.5))
+              ? customRoundedBorder(color: Colors.grey.withAlpha(05))
               : customUnderlineBorder(color: ColorConstants.lightGrey),
           focusedBorder: roundedBorder
-              ? customRoundedBorder(color: Colors.grey.withValues(alpha: 0.5))
+              ? customRoundedBorder(color: Colors.grey.withAlpha(05))
               : customUnderlineBorder(),
           prefixIcon: prefixIcon,
           suffixIcon: sufixIcon,

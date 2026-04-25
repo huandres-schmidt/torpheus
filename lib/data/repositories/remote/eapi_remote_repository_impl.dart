@@ -13,7 +13,7 @@ class EapiRemoteRepositoryImpl extends BaseRemoteDataSource
 
   @override
   Future<RefreshToken> getNewAccessToken(String refreshToken) async {
-    final String titleMessage = 'Não foi possível atualizar a autenticação';
+    const String titleMessage = 'Não foi possível atualizar a autenticação';
 
     final rota = EapiSchema.route(EapiRoutes.refreshToken);
 
@@ -38,7 +38,7 @@ class EapiRemoteRepositoryImpl extends BaseRemoteDataSource
 
   @override
   Future<void> validaToken(String accessToken) async {
-    final String titleMessage = 'Não foi possível validar a autenticação';
+    const String titleMessage = 'Não foi possível validar a autenticação';
 
     final rota = EapiSchema.route(EapiRoutes.validaToken);
 

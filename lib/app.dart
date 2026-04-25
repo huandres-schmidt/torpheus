@@ -25,8 +25,6 @@ class TorpheusApp extends StatelessWidget {
         ),
         title: 'Torpheus',
         debugShowCheckedModeBanner: false,
-        supportedLocales: const [Locale('pt', 'BR')],
-        locale: const Locale('pt', 'BR'),
         onGenerateRoute: (settings) => Routes.router(settings, injector),
         initialRoute: AppRoutes.root.route,
       ),

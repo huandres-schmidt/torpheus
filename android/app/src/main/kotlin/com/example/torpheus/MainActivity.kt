@@ -1,4 +1,4 @@
-package com.torpheus.torpheus
+package com.example.torpheus
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -15,6 +15,7 @@ void main() async {
 }
 
 Future<Injector> _initializeApp() async {
+
   final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);

@@ -8,7 +8,7 @@
 PRODUCT_NAME = torpheus
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.torpheus.torpheus
+PRODUCT_BUNDLE_IDENTIFIER = com.example.torpheus
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2026 com.torpheus. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 com.example. All rights reserved.
