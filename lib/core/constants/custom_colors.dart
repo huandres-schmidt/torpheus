@@ -7,4 +7,7 @@ class ColorConstants {
   static const grey = Color(0xFFF5F5F5);
   static const greyText = Color(0xFFA1A1A1);
   static const redDelete = Color(0xFFD10404);
+
+  static Color chambray = const Color.fromRGBO(27, 47, 78, 1);
+  static Color corFundo = const Color.fromRGBO(240, 242, 245, 1);
 }

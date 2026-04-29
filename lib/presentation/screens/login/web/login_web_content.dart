@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:torpheus/config/routes.dart';
-import 'package:torpheus/core/shared/app_system_info.dart';
-import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 
-import '../../../components/versao_app.dart';
-import 'login_body.dart';
+import '../../../../config/routes.dart';
+import '../bloc/login_bloc.dart';
+import 'login_web_body.dart';
 
-class LoginContent extends StatefulWidget {
-  const LoginContent({super.key});
+class LoginWebContent extends StatefulWidget {
+  const LoginWebContent({super.key});
 
   @override
-  State<LoginContent> createState() => _LoginContentState();
+  State<LoginWebContent> createState() => _LoginWebContentState();
 }
 
-class _LoginContentState extends State<LoginContent> {
+class _LoginWebContentState extends State<LoginWebContent> {
   final TextEditingController controllerNome = TextEditingController();
   final TextEditingController controllerSenha = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey();
@@ -31,7 +29,7 @@ class _LoginContentState extends State<LoginContent> {
           }
 
           if (state is LoginLoaded) {
-            return LoginBody(
+            return LoginWebBody(
               controllerNome: controllerNome,
               controllerSenha: controllerSenha,
               formKey: formKey,
@@ -42,7 +40,6 @@ class _LoginContentState extends State<LoginContent> {
           return const SizedBox.shrink();
         },
       ),
-      bottomNavigationBar: const VersaoApp(),
     );
   }
 

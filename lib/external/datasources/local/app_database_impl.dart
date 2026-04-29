@@ -30,7 +30,8 @@ class ApplicationDatabaseImpl implements ApplicationDatabase {
       // sqfliteFfiInit();
       // databaseFactory = databaseFactoryFfi;
       databasesPath = await getDatabasesPath();
-    } else {
+    }
+    if (Platform.isAndroid || Platform.isIOS) {
       databasesPath = await getDatabasesPath();
     }
 

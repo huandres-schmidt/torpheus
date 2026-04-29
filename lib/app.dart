@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:torpheus/config/theme.dart';
 import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 
 import 'config/routes.dart';
@@ -38,6 +39,7 @@ class TorpheusApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: (settings) => Routes.router(settings, injector),
           initialRoute: AppRoutes.root.route,
+          theme: AppTheme.theme(),
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../../data/plugins/device_hardware_info.dart';
 
@@ -9,6 +10,8 @@ class DeviceHardwareInfoImpl implements DeviceHardwareInfo {
 
   @override
   Future<String> getBrand() async {
+    if (kIsWeb) return 'BROWSER';
+
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
       return androidInfo.brand;
@@ -20,6 +23,8 @@ class DeviceHardwareInfoImpl implements DeviceHardwareInfo {
 
   @override
   Future<String> getHardware() async {
+    if (kIsWeb) return 'WEB_EXT';
+
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
       return androidInfo.hardware;
@@ -32,6 +37,8 @@ class DeviceHardwareInfoImpl implements DeviceHardwareInfo {
 
   @override
   Future<String> getManufacturer() async {
+    if (kIsWeb) return 'WEB';
+
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
       return androidInfo.manufacturer;
@@ -43,6 +50,11 @@ class DeviceHardwareInfoImpl implements DeviceHardwareInfo {
 
   @override
   Future<String> getModel() async {
+    if (kIsWeb) {
+      final webInfo = await _deviceInfo.webBrowserInfo;
+      return webInfo.browserName.name;
+    }
+
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
       return androidInfo.model;
@@ -55,6 +67,11 @@ class DeviceHardwareInfoImpl implements DeviceHardwareInfo {
 
   @override
   Future<String> getOperationalSystem() async {
+    if (kIsWeb) {
+      final webInfo = await _deviceInfo.webBrowserInfo;
+      return 'WEB_${webInfo.platform}';
+    }
+
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
       return 'ANDROID_${androidInfo.version.release}';
@@ -67,6 +84,8 @@ class DeviceHardwareInfoImpl implements DeviceHardwareInfo {
 
   @override
   Future<int> getApiLevel() async {
+    if (kIsWeb) return 0;
+
     if (Platform.isAndroid) {
       final AndroidDeviceInfo androidInfo = await _deviceInfo.androidInfo;
       return androidInfo.version.sdkInt;
