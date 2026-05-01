@@ -1,5 +1,7 @@
 import 'package:get_it/get_it.dart';
+import 'package:torpheus/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
+import 'package:torpheus/presentation/screens/menu/bloc/menu_bloc.dart';
 
 import 'core/shared/app_system_info.dart';
 import 'external/plugins/android_info_impl.dart';
@@ -98,6 +100,14 @@ final class InjectorImpl extends Injector {
       LoginBloc(
         getIt.get<PreferencesLocalRepository>(),
       ),
+    );
+
+    getIt.registerSingleton<HomeBloc>(
+      HomeBloc(),
+    );
+
+    getIt.registerSingleton<MenuBloc>(
+      MenuBloc(),
     );
 
     return InjectorImpl._(getIt);

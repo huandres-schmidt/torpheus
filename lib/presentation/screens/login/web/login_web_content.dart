@@ -45,7 +45,7 @@ class _LoginWebContentState extends State<LoginWebContent> {
 
   void _listener(BuildContext context, LoginState state) {
     if (state is LoginAutenticado) {
-      Navigator.of(context).pushNamed(AppRoutes.home.route);
+      Navigator.of(context).pushNamed(AppRoutes.root.route);
     }
   }
 

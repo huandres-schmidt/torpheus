@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:torpheus/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:torpheus/presentation/screens/home/home_screen.dart';
 import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
+import 'package:torpheus/presentation/screens/menu/bloc/menu_bloc.dart';
 import '../presentation/screens/authentication/authentication_bloc/authentication_bloc.dart';
 
 import '../injector.dart';
@@ -39,8 +41,12 @@ class Routes {
       AppRoutes.root => AuthenticationScreen(
           authenticationBloc: injector.getIt.get<AuthenticationBloc>(),
           loginBloc: injector.getIt.get<LoginBloc>(),
+          menuBloc: injector.getIt.get<MenuBloc>(),
+          homeBloc: injector.getIt.get<HomeBloc>(),
         ),
-      AppRoutes.home => const HomeScreen(),
+      AppRoutes.home => HomeScreen(
+          homeBloc: injector.getIt.get<HomeBloc>(),
+        ),
     };
 
     return switch (appRoute.flow) {
