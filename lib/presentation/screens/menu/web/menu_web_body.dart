@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:torpheus/core/constants/custom_colors.dart';
 import 'package:torpheus/presentation/screens/menu/bloc/menu_bloc.dart';
 
-import '../../home/home_screen.dart';
+import '../../painel/painel_screen.dart';
 import '../menu_screen.dart';
 
 class MenuWebBody extends StatelessWidget {
@@ -77,7 +77,7 @@ class MenuWebBody extends StatelessWidget {
 
   List<Widget> _widgetPages() {
     return [
-      HomeScreen(homeBloc: menuParametros.homeBloc),
+      PainelScreen(painelBloc: menuParametros.homeBloc),
       const Text('Ordens de serviço'),
       const Text('Mecânicos'),
       const Text('Clientes'),

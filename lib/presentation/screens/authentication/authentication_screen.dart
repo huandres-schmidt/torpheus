@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:torpheus/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:torpheus/presentation/screens/painel/bloc/painel_bloc.dart';
 import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:torpheus/presentation/screens/menu/bloc/menu_bloc.dart';
 import 'package:torpheus/presentation/screens/menu/menu_screen.dart';
@@ -22,7 +22,7 @@ class AuthenticationScreen extends StatefulWidget {
   final AuthenticationBloc authenticationBloc;
   final LoginBloc loginBloc;
   final MenuBloc menuBloc;
-  final HomeBloc homeBloc;
+  final PainelBloc homeBloc;
 
   @override
   State<AuthenticationScreen> createState() => _AuthenticationScreenState();
@@ -32,7 +32,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
   late final AuthenticationBloc _authenticationBloc;
   late final LoginBloc _loginBloc;
   late final MenuBloc _menuBloc;
-  late final HomeBloc _homeBloc;
+  late final PainelBloc _homeBloc;
 
   @override
   void initState() {

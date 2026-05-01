@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:torpheus/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:torpheus/presentation/screens/painel/bloc/painel_bloc.dart';
 import 'package:torpheus/presentation/screens/login/bloc/login_bloc.dart';
 import 'package:torpheus/presentation/screens/menu/bloc/menu_bloc.dart';
 
@@ -102,8 +102,8 @@ final class InjectorImpl extends Injector {
       ),
     );
 
-    getIt.registerSingleton<HomeBloc>(
-      HomeBloc(),
+    getIt.registerSingleton<PainelBloc>(
+      PainelBloc(),
     );
 
     getIt.registerSingleton<MenuBloc>(

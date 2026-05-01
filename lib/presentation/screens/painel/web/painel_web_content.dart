@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeWebContent extends StatelessWidget {
-  const HomeWebContent({super.key});
+class PainelWebContent extends StatelessWidget {
+  const PainelWebContent({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -10,4 +10,5 @@ class ColorConstants {
 
   static Color chambray = const Color.fromRGBO(27, 47, 78, 1);
   static Color corFundo = const Color.fromRGBO(240, 242, 245, 1);
+  static Color corTexto = const Color.fromRGBO(26, 35, 50, 1);
 }
